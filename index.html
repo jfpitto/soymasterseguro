@@ -94,16 +94,16 @@
     <div class="watermark">#SoyMasterSeguro 💡</div>
   </div>
 
- <footer>
-  💡 Tip Seguridad Informática — 
-  <a href="https://www.tiktok.com/@soy.masterseguro?_t=ZN-90wIS5r6GDm&_r=1" 
-     target="_blank" 
-     class="text-decoration-none text-dark fw-semibold">
-     <i class="bi bi-tiktok"></i> @soy.masterseguro
-  </a>
-</footer>
+  <footer>
+    💡 Tip Seguridad Informática — 
+    <a href="https://www.tiktok.com/@soy.masterseguro?_t=ZN-90wIS5r6GDm&_r=1" 
+       target="_blank" 
+       class="text-decoration-none text-dark fw-semibold">
+       <i class="bi bi-tiktok"></i> @soy.masterseguro
+    </a>
+  </footer>
 
-  <!-- Modal de detalles -->
+  <!-- Modal -->
   <div class="modal fade" id="tipModal" tabindex="-1" aria-labelledby="tipModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content shadow-lg rounded-4">
@@ -120,74 +120,113 @@
   </div>
 
   <script>
-  const tips = [
-    { 
-      texto: "Usa contraseñas únicas y seguras para cada cuenta.",
-      icono: "bi-shield-lock",
-      detalle: "Crea contraseñas con al menos 12 caracteres, combinando letras, números y símbolos. Evita usar datos personales."
-    },
-    { 
-      texto: "Activa la verificación en dos pasos en tus redes sociales.",
-      icono: "bi-shield-check",
-      detalle: "Activa esta opción en la configuración de seguridad de tus cuentas. Añade una capa extra de protección frente a robos."
-    },
-    { 
-      texto: "No compartas información personal en sitios no seguros.",
-      icono: "bi-exclamation-triangle",
-      detalle: "Asegúrate de que el sitio tenga HTTPS en la barra de direcciones. Si no lo tiene, evita ingresar datos personales."
-    },
-    { 
-      texto: "Evita conectarte a redes Wi-Fi públicas sin VPN.",
-      icono: "bi-wifi-off",
-      detalle: "Las redes públicas pueden ser interceptadas. Usa una VPN confiable si necesitas conectarte en lugares públicos."
-    },
-    { 
-      texto: "Haz copias de seguridad de tus archivos importantes.",
-      icono: "bi-cloud-arrow-up",
-      detalle: "Usa servicios en la nube como Google Drive o OneDrive. Programa copias automáticas semanales."
-    },
-    { 
-      texto: "Desconfía de correos sospechosos: pueden ser phishing.",
-      icono: "bi-envelope-exclamation",
-      detalle: "No abras enlaces o adjuntos de correos desconocidos. Verifica la dirección del remitente cuidadosamente."
-    },
-    { 
-      texto: "No instales software de fuentes desconocidas.",
-      icono: "bi-bug",
-      detalle: "Descarga programas solo desde sitios oficiales o tiendas reconocidas como Microsoft Store o Play Store."
-    },
-    { 
-      texto: "Actualiza tus programas frecuentemente para corregir vulnerabilidades.",
-      icono: "bi-arrow-repeat",
-      detalle: "Activa las actualizaciones automáticas del sistema operativo y las aplicaciones críticas."
-    },
-    { 
-      texto: "Usa un gestor de contraseñas para mayor seguridad.",
-      icono: "bi-key",
-      detalle: "Prueba gestores como Bitwarden o 1Password. Te ayudan a generar y recordar contraseñas seguras."
-    },
-    { 
-      texto: "No uses la misma contraseña en diferentes plataformas.",
-      icono: "bi-lock",
-      detalle: "Cada cuenta debe tener una contraseña distinta. Así evitas que un hackeo afecte todas tus cuentas."
-    }
-  ];
+ const tips = [
+  { texto: "Usa contraseñas únicas y seguras para cada cuenta.", icono: "bi-shield-lock", detalle: "Crea contraseñas con al menos 12 caracteres, combinando letras, números y símbolos." },
+  { texto: "Activa la verificación en dos pasos en tus redes sociales.", icono: "bi-shield-check", detalle: "Activa esta opción en la configuración de seguridad de tus cuentas." },
+  { texto: "Evita conectarte a redes Wi-Fi públicas sin VPN.", icono: "bi-wifi-off", detalle: "Usa una VPN confiable si necesitas conectarte en lugares públicos." },
+  { texto: "Haz copias de seguridad de tus archivos importantes.", icono: "bi-cloud-arrow-up", detalle: "Usa servicios en la nube como Google Drive o OneDrive." },
+  { texto: "Desconfía de correos sospechosos: pueden ser phishing.", icono: "bi-envelope-exclamation", detalle: "No abras enlaces o adjuntos de correos desconocidos." },
 
-  // Tip aleatorio
+  // 🧠 Nuevos tips (100 en total)
+  { texto: "No uses la misma contraseña para diferentes sitios.", icono: "bi-key", detalle: "Cada sitio debe tener una contraseña distinta para evitar riesgos." },
+  { texto: "Mantén tu sistema operativo actualizado.", icono: "bi-arrow-repeat", detalle: "Activa las actualizaciones automáticas de tu sistema." },
+  { texto: "Cierra sesión en dispositivos compartidos.", icono: "bi-door-closed", detalle: "Siempre cierra sesión al usar computadoras públicas." },
+  { texto: "Usa autenticadores en lugar de SMS.", icono: "bi-phone-lock", detalle: "Aplicaciones como Authy o Google Authenticator son más seguras." },
+  { texto: "Evita descargar archivos desde correos desconocidos.", icono: "bi-file-earmark-excel", detalle: "Podrían contener virus o malware." },
+  { texto: "Revisa los permisos de las apps en tu celular.", icono: "bi-phone", detalle: "Desactiva permisos innecesarios en apps poco confiables." },
+  { texto: "Evita compartir contraseñas por mensajes.", icono: "bi-chat-dots", detalle: "Usa un gestor de contraseñas si necesitas compartir acceso." },
+  { texto: "Instala antivirus y mantenlo actualizado.", icono: "bi-bug", detalle: "Protege tu equipo de malware y amenazas en línea." },
+  { texto: "Usa contraseñas diferentes para cuentas personales y laborales.", icono: "bi-person-workspace", detalle: "Así evitas que una brecha afecte ambas." },
+  { texto: "No uses redes Wi-Fi abiertas para transacciones bancarias.", icono: "bi-bank", detalle: "Usa datos móviles o una red privada." },
+  { texto: "Evita hacer clic en enlaces acortados sospechosos.", icono: "bi-link-45deg", detalle: "Pasa el cursor sobre el enlace para ver la URL completa." },
+  { texto: "Verifica la URL antes de iniciar sesión en sitios web.", icono: "bi-browser-chrome", detalle: "Asegúrate de que comience con https://." },
+  { texto: "Usa un correo exclusivo para tus cuentas importantes.", icono: "bi-envelope", detalle: "Así reduces el riesgo si otro correo se ve comprometido." },
+  { texto: "Bloquea tu PC cuando te alejes del escritorio.", icono: "bi-pc-display-horizontal", detalle: "Presiona Win + L en Windows para bloquear rápidamente." },
+  { texto: "No compartas fotos de documentos personales.", icono: "bi-camera", detalle: "Evita publicar tu cédula, pasaporte o tarjetas en redes." },
+  { texto: "Configura alertas de inicio de sesión en tus cuentas.", icono: "bi-bell", detalle: "Recibe notificaciones cuando alguien acceda a tu cuenta." },
+  { texto: "Evita usar USB desconocidos.", icono: "bi-usb", detalle: "Podrían tener virus o programas espía." },
+  { texto: "Activa el cifrado de disco en tu computador.", icono: "bi-lock", detalle: "Usa BitLocker o FileVault para proteger tus archivos." },
+  { texto: "Usa buscadores seguros.", icono: "bi-search", detalle: "DuckDuckGo y Brave priorizan la privacidad." },
+  { texto: "Evita dejar contraseñas anotadas en papel.", icono: "bi-journal-text", detalle: "Usa gestores digitales como 1Password o Bitwarden." },
+  { texto: "Configura el cierre automático de sesión en tu navegador.", icono: "bi-browser-edge", detalle: "Así se reduce el riesgo de acceso no autorizado." },
+  { texto: "No aceptes dispositivos Bluetooth desconocidos.", icono: "bi-bluetooth", detalle: "Podrían conectarse sin tu permiso." },
+  { texto: "Desactiva la ubicación cuando no la necesites.", icono: "bi-geo", detalle: "Protege tu privacidad limitando la geolocalización." },
+  { texto: "Verifica siempre la fuente de las noticias tecnológicas.", icono: "bi-newspaper", detalle: "Evita caer en fraudes o desinformación." },
+  { texto: "Evita almacenar contraseñas en navegadores.", icono: "bi-browser-safari", detalle: "Usa gestores de contraseñas seguros." },
+  { texto: "No ignores las alertas de seguridad del sistema.", icono: "bi-exclamation-octagon", detalle: "Pueden indicar vulnerabilidades graves." },
+  { texto: "Haz limpieza regular de tus cookies y caché.", icono: "bi-trash", detalle: "Mejora tu privacidad y el rendimiento del navegador." },
+  { texto: "Configura el bloqueo automático en tu celular.", icono: "bi-phone-lock", detalle: "Asegúrate de que se bloquee tras unos segundos." },
+  { texto: "Evita enviar información sensible por correo.", icono: "bi-envelope-x", detalle: "Usa servicios cifrados si es necesario." },
+  { texto: "No uses pendrives de origen desconocido.", icono: "bi-usb-symbol", detalle: "Podrían infectar tu equipo automáticamente." },
+  { texto: "Configura preguntas de seguridad fuertes.", icono: "bi-question-circle", detalle: "Evita respuestas fáciles de adivinar." },
+  { texto: "Protege tus redes sociales con contraseñas fuertes.", icono: "bi-instagram", detalle: "Evita combinaciones simples como fechas o nombres." },
+  { texto: "Cifra tus archivos importantes.", icono: "bi-file-lock", detalle: "Usa herramientas como VeraCrypt o WinRAR con contraseña." },
+  { texto: "No uses software pirata.", icono: "bi-exclamation-triangle", detalle: "Podría contener malware oculto." },
+  { texto: "Desactiva la reproducción automática de medios.", icono: "bi-play-btn", detalle: "Evita que videos maliciosos se ejecuten solos." },
+  { texto: "Evita descargar apps fuera de las tiendas oficiales.", icono: "bi-download", detalle: "Solo descarga desde Play Store o App Store." },
+  { texto: "Instala extensiones solo de fuentes confiables.", icono: "bi-puzzle", detalle: "Revisa reseñas y permisos antes de instalar." },
+  { texto: "Analiza archivos sospechosos en VirusTotal.", icono: "bi-shield-shaded", detalle: "Sube archivos a virustotal.com antes de abrirlos." },
+  { texto: "No compartas tus credenciales laborales.", icono: "bi-people", detalle: "Cada usuario debe tener su propio acceso." },
+  { texto: "Evita usar tu correo corporativo para registros personales.", icono: "bi-envelope-at", detalle: "Mantén separadas tus cuentas laborales y personales." },
+  { texto: "Revisa la configuración de privacidad de tus redes.", icono: "bi-gear", detalle: "Ajusta quién puede ver tus publicaciones." },
+  { texto: "No publiques tus planes de viaje en redes.", icono: "bi-airplane", detalle: "Podría exponer tu ubicación a desconocidos." },
+  { texto: "Elimina cuentas que ya no uses.", icono: "bi-person-x", detalle: "Reduce la exposición de tus datos personales." },
+  { texto: "Evita conectar dispositivos desconocidos a tu red.", icono: "bi-router", detalle: "Podrían comprometer la seguridad de tu Wi-Fi." },
+  { texto: "Cambia regularmente las contraseñas del router.", icono: "bi-wifi", detalle: "Usa combinaciones fuertes y no uses la predeterminada." },
+  { texto: "Usa un firewall activo.", icono: "bi-fire", detalle: "Protege tu red de accesos no autorizados." },
+  { texto: "Verifica los enlaces antes de compartirlos.", icono: "bi-link", detalle: "Evita propagar sitios falsos o maliciosos." },
+  { texto: "Evita responder correos sospechosos.", icono: "bi-envelope-exclamation", detalle: "Esto confirma que tu dirección de correo está activa." },
+  { texto: "Desactiva macros en documentos desconocidos.", icono: "bi-file-earmark-excel", detalle: "Las macros pueden ejecutar código malicioso." },
+  { texto: "Evita abrir archivos comprimidos desconocidos.", icono: "bi-archive", detalle: "Podrían contener malware oculto." },
+  { texto: "No uses tu dispositivo personal para tareas sensibles del trabajo.", icono: "bi-laptop", detalle: "Evita mezclar información laboral y personal." },
+  { texto: "Verifica siempre el remitente real de los correos.", icono: "bi-envelope-paper", detalle: "Haz clic en el nombre del remitente para ver su dirección." },
+  { texto: "Usa autenticación biométrica siempre que sea posible.", icono: "bi-fingerprint", detalle: "Huella, rostro o PIN son opciones seguras." },
+  { texto: "Cierra tus sesiones de redes sociales en navegadores públicos.", icono: "bi-browser", detalle: "Evita accesos no deseados." },
+  { texto: "Evita descargar cracks o keygens.", icono: "bi-tools", detalle: "Suelen incluir software malicioso oculto." },
+  { texto: "Mantén limpio tu correo eliminando spam.", icono: "bi-trash3", detalle: "Ayuda a identificar correos importantes rápidamente." },
+  { texto: "Activa la encriptación de extremo a extremo en mensajería.", icono: "bi-chat-lock", detalle: "WhatsApp y Signal ofrecen esta protección." },
+  { texto: "Configura alertas de actividad sospechosa en tus cuentas.", icono: "bi-bell-fill", detalle: "Recibirás notificaciones ante accesos no reconocidos." },
+  { texto: "No guardes contraseñas en notas del celular.", icono: "bi-sticky", detalle: "Usa gestores cifrados en lugar de notas simples." },
+  { texto: "Evita dar clic en anuncios sospechosos.", icono: "bi-megaphone", detalle: "Podrían redirigirte a sitios maliciosos." },
+  { texto: "Evita usar computadoras de cibercafés para ingresar a tus cuentas.", icono: "bi-pc", detalle: "Podrían tener keyloggers instalados." },
+  { texto: "Evita abrir adjuntos .exe o .js.", icono: "bi-file-earmark-code", detalle: "Podrían ejecutar virus en tu equipo." },
+  { texto: "Haz limpieza de aplicaciones que no uses.", icono: "bi-trash2", detalle: "Elimina apps antiguas que puedan ser vulnerables." },
+  { texto: "Evita reenviar cadenas de mensajes.", icono: "bi-forward", detalle: "Pueden contener links o desinformación." },
+  { texto: "Activa las notificaciones de seguridad de tu banco.", icono: "bi-credit-card", detalle: "Te alertan sobre movimientos sospechosos." },
+  { texto: "Desactiva la opción de instalación automática de apps.", icono: "bi-slash-circle", detalle: "Así evitas apps que se instalan sin permiso." },
+  { texto: "Verifica la identidad del soporte técnico antes de compartir información.", icono: "bi-headset", detalle: "Los estafadores se hacen pasar por técnicos." },
+  { texto: "Evita prestar tus cuentas personales a otros.", icono: "bi-person", detalle: "Podrían acceder a información sensible." },
+  { texto: "Desactiva la sincronización automática si no la necesitas.", icono: "bi-cloud", detalle: "Reduce el riesgo de fuga de datos." },
+  { texto: "Evita dejar tu sesión abierta en computadoras compartidas.", icono: "bi-door-open", detalle: "Cierra sesión antes de retirarte." },
+  { texto: "Revisa tus dispositivos conectados a tu cuenta Google.", icono: "bi-google", detalle: "Elimina los que no reconozcas desde tu panel de seguridad." },
+  { texto: "No compartas capturas de pantalla con información sensible.", icono: "bi-image", detalle: "Podrías exponer datos personales sin notarlo." },
+  { texto: "Evita almacenar datos bancarios en apps no oficiales.", icono: "bi-wallet", detalle: "Usa las aplicaciones oficiales del banco." },
+  { texto: "Usa cifrado en tus discos externos y memorias USB.", icono: "bi-hdd", detalle: "Protege tus archivos si pierdes el dispositivo." },
+  { texto: "Verifica la autenticidad de los sitios de pago.", icono: "bi-cash", detalle: "Revisa que la URL pertenezca al comercio real." },
+  { texto: "Revisa periódicamente los dispositivos conectados a tu Wi-Fi.", icono: "bi-router", detalle: "Desconecta los desconocidos desde tu panel del router." },
+  { texto: "Evita publicar fotos con fondos que muestren datos personales.", icono: "bi-camera-video", detalle: "Cuidado con documentos o pantallas visibles." },
+  { texto: "Evita dejar tus sesiones abiertas en dispositivos móviles prestados.", icono: "bi-phone-flip", detalle: "Cierra sesión antes de devolver el equipo." },
+  { texto: "Evita usar contraseñas basadas en tu fecha de nacimiento.", icono: "bi-calendar", detalle: "Son fáciles de adivinar." },
+  { texto: "No guardes contraseñas en documentos Word o Excel sin cifrar.", icono: "bi-file-earmark-lock", detalle: "Usa gestores de contraseñas en su lugar." },
+  { texto: "No uses tu correo laboral en redes sociales.", icono: "bi-envelope-slash", detalle: "Evita exponer información corporativa." },
+  { texto: "Mantén actualizados tus controladores de hardware.", icono: "bi-cpu", detalle: "Mejoran el rendimiento y corrigen fallas de seguridad." },
+  { texto: "Usa contraseñas aleatorias generadas automáticamente.", icono: "bi-asterisk", detalle: "Son más difíciles de hackear." },
+  { texto: "Configura un PIN o patrón seguro en tu celular.", icono: "bi-lock-fill", detalle: "Evita patrones predecibles como '1234' o 'L' invertida." },
+  { texto: "Evita abrir enlaces en comentarios o publicaciones sospechosas.", icono: "bi-chat-left-quote", detalle: "Pueden llevarte a páginas falsas." },
+  { texto: "Protege tus dispositivos IoT con contraseñas fuertes.", icono: "bi-house", detalle: "Cambia las credenciales por defecto del fabricante." }
+];
+
+
   const tip = tips[Math.floor(Math.random() * tips.length)];
-
-  // Mostrar el tip
   document.getElementById("iconTip").className = `bi ${tip.icono} icon-tip`;
   document.getElementById("tipText").innerText = tip.texto;
 
-  // Mostrar detalles en modal
   document.getElementById("detailBtn").addEventListener("click", () => {
     document.getElementById("tipModalBody").innerText = tip.detalle;
-    const modal = new bootstrap.Modal(document.getElementById("tipModal"));
-    modal.show();
+    new bootstrap.Modal(document.getElementById("tipModal")).show();
   });
 
-  // Compartir como imagen (sin los botones)
+  // COMPARTIR con compatibilidad total
   document.getElementById("shareBtn").addEventListener("click", async () => {
     const shareBtn = document.getElementById("shareBtn");
     const detailBtn = document.getElementById("detailBtn");
@@ -196,19 +235,30 @@
 
     const card = document.getElementById("tipCard");
     const canvas = await html2canvas(card);
-    
+
     shareBtn.style.display = "inline-block";
     detailBtn.style.display = "inline-block";
 
-    canvas.toBlob(blob => {
+    canvas.toBlob(async blob => {
       const file = new File([blob], "tip-del-dia.png", { type: "image/png" });
+      
+      // ✅ Caso 1: navegador soporta compartir archivos
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        navigator.share({
+        await navigator.share({
           files: [file],
-          title: "Tip del día 💡",
-          text: tip.texto
+          title: "💡 Tip del día - #SoyMasterSeguro",
+          text: `${tip.texto}\n\nSigue más tips en TikTok 👉 @soy.masterseguro`,
         });
-      } else {
+      } 
+      // ✅ Caso 2: navegador solo soporta texto
+      else if (navigator.share) {
+        await navigator.share({
+          title: "💡 Tip de seguridad informática",
+          text: `${tip.texto}\n\n#SoyMasterSeguro\nSigue en TikTok 👉 https://www.tiktok.com/@soy.masterseguro`,
+        });
+      } 
+      // ✅ Caso 3: descarga de imagen como fallback
+      else {
         const link = document.createElement("a");
         link.download = "tip-del-dia.png";
         link.href = URL.createObjectURL(blob);
